@@ -1,0 +1,7 @@
+# Used by Streamlit Community Cloud for the demo (app.py). The HTTP API needs more; install
+# it with `pip install -e .`. Every name here must also be a dependency in pyproject.toml
+# (tests/test_requirements.py enforces this). app.py loads the code from src/ directly.
+streamlit>=1.38
+pydantic>=2.7
+pymupdf>=1.24
+google-genai>=1.0

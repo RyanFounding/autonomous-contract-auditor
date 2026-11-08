@@ -41,6 +41,7 @@ ComplianceReport (JSON)
 | `policy.py` | Policy rules and data-quality checks. Pure functions, no I/O. |
 | `config.py` | Settings read from environment variables, including policy limits. |
 | `api.py` | HTTP layer only. Wires settings and the extractor through FastAPI dependencies. |
+| `app.py` | Streamlit demo. Uses the same extraction and policy modules as the API. |
 
 ## Tech stack
 
@@ -86,6 +87,17 @@ curl -F "file=@data/sample_contract.pdf" http://127.0.0.1:8000/audit-contract
 ```
 
 Interactive API docs are at http://127.0.0.1:8000/docs.
+
+### Streamlit demo
+
+A browser front end for the same pipeline. Upload a contract or use the bundled sample, then adjust the policy limits in the sidebar. The model reads the contract once, and changing a limit re-audits instantly without another model call.
+
+```bash
+export GEMINI_API_KEY=your-key     # or put it in .env and export it
+streamlit run app.py
+```
+
+To host it on Streamlit Community Cloud, set the main file to `app.py` and add `GEMINI_API_KEY` under the app's secrets. The deployment installs only `requirements.txt`, which is a smaller set than the API needs.
 
 ### Configuration
 
