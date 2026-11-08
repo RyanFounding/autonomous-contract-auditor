@@ -32,3 +32,20 @@ def test_bundled_sample_contract_is_readable() -> None:
 
     assert "Net 45" in text
     assert "Global Logistics Partners LLC" in text
+
+
+def test_client_pins_the_json_schema_capable_api_version(monkeypatch: pytest.MonkeyPatch) -> None:
+    from contract_auditor.extraction import GEMINI_API_VERSION, GeminiContractExtractor
+
+    captured: dict[str, object] = {}
+
+    def fake_client(**kwargs: object) -> object:
+        captured.update(kwargs)
+        return object()
+
+    monkeypatch.setattr("google.genai.Client", fake_client)
+
+    GeminiContractExtractor(api_key="test-key", model="gemini-2.5-flash")
+
+    assert GEMINI_API_VERSION == "v1beta"
+    assert captured["http_options"].api_version == "v1beta"  # type: ignore[attr-defined]
