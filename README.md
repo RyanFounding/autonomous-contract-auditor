@@ -65,7 +65,7 @@ ComplianceReport (JSON)
 Requires Python 3.11 or newer.
 
 ```bash
-git clone https://github.com/RyanFounding/autonomous-contract-auditor.git
+git clone https://github.com/insan-sll/autonomous-contract-auditor.git
 cd autonomous-contract-auditor
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
