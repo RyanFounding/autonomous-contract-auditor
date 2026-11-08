@@ -1,0 +1,18 @@
+# Environments and secrets
+.venv/
+venv/
+.env
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
