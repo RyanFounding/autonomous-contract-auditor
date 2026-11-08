@@ -2,6 +2,8 @@
 
 A FastAPI service that reads a vendor contract PDF, extracts the commercial terms into a typed schema, and checks them against procurement policy.
 
+Live demo: [insan-contract-auditor.streamlit.app](https://insan-contract-auditor.streamlit.app)
+
 ## Problem
 
 Procurement teams review vendor contracts for a small set of terms that drive cost and supply risk: payment terms, delivery lead time, and the value of what is being bought. Checking these by hand is slow, and it gets skipped when volume is high. A language model can read the contract, but it should not be the one deciding whether a contract passes policy. Its answers are not reproducible, and nobody can audit them.
